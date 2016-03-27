@@ -1,0 +1,128 @@
+
+/*----Global-----*/
+body {
+
+background-image:url(backgroundRace.jpg);
+background-repeat:no-repeat;
+background-size: cover;
+}
+
+/*----Content-----*/
+/*----table-----*/
+.racer_table {
+margin: auto;
+padding:50px;
+}
+
+.racer_table #player1_strip td.path {
+ background-color:Black;
+height: 55px;
+width: 55px;
+}
+
+.racer_table td {
+  background-image:url(race.jpg);
+ background-repeat:no-repeat;
+ background-size:55px 55px;
+  height: 55px;
+  width: 55px;
+}
+/*----Animation-----*/
+@keyframes blink-animation{
+   0% {
+    opacity:1;
+  }
+  49% {
+    opacity:1;
+  }
+  50% {
+    opacity:0;
+  }
+  100% {
+    opacity:0;
+  }
+}
+@-webkit-keyframes blink-animation{
+  0% {
+    opacity:1;
+  }
+  49% {
+    opacity:1;
+  }
+  50% {
+    opacity:0;
+  }
+  100% {
+    opacity:0;
+  }
+}
+.racer_table #player1_strip td.active {
+ background-image:url(car1.jpg);
+ animation:blink-animation 1s infinite;
+-webkit-animation: blink-animation 1s infinite;
+ background-repeat:no-repeat;
+ background-size:55px 55px
+}
+.racer_table #player2_strip td.active {
+ background-image:url(car2.jpg);
+ animation:blink-animation 1s infinite;
+-webkit-animation: blink-animation 1s infinite;
+ background-repeat:no-repeat;
+ background-size:55px 55px
+}
+div {
+  text-align: center;
+}
+/*----Startbutton-----*/
+#startBtn
+{
+  background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    float:center;
+    margin-top:100px; 
+}
+.start-game
+{
+  float:center;
+  padding-top: 25px;
+}
+#pChaseTrack
+{
+  animation:blink-animation 1s infinite;
+  -webkit-animation: blink-animation 1s infinite;
+  text-align: center;
+  color:red;
+  font-size: 30px;
+  font-weight: bold;
+}
+#qChaseTrack
+{
+  animation:blink-animation 1s infinite;
+  -webkit-animation: blink-animation 1s infinite;
+  text-align: center;
+  color:red;
+  font-size: 30px;
+  font-weight: bold;
+}
+#trackEsc
+{
+  animation:blink-animation 1s infinite;
+  -webkit-animation: blink-animation 1s infinite;
+  text-align: center;
+  color:yellow;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#keytoRace
+{
+  color:yellow;
+   font-size: 25px;
+   font-weight: bold;
+}
