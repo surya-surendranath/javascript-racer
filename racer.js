@@ -23,32 +23,33 @@ if(gameCount<=1)
 //creating track length
 
 
-          trackLength = prompt("How many km required for you to escape from the city?") 
+trackLength = prompt("How many km required for you to escape from the city?") 
 
-          for (var i = 0; i < playerStrip.length; i++) { 
+for (var i = 0; i < playerStrip.length; i++) { 
 
-          for ( var j = 0; j < trackLength; j++){
+for ( var j = 0; j < trackLength; j++){
 
-          var trackColoumn = document.createElement('td')
+var trackColoumn = document.createElement('td')
 
-          playerStrip[i].appendChild(trackColoumn)
+playerStrip[i].appendChild(trackColoumn)
           
-        }
+  }
         
         
-      }}
+  }}
 
 
 //when user want new game while progressing the current
 
-      else if(gameCount>1)
-      {
+else if(gameCount>1)
+   
+ {
 
-      location.reload();
+location.reload();
 
-      alert("Oops!! you want to start a new game");
+alert("Oops!! you want to start a new game");
 
-      alert("Click again on Start button for new game");
+alert("Click again on Start button for new game");
    
 }
         
