@@ -8,7 +8,6 @@ function startGame(){
 
          if(gameCount<=1) {
             //creating track length
-
             trackLength = prompt("How many km required for you to escape from the city?") 
 
                for (var i = 0; i < playerStrip.length; i++) { 
@@ -19,7 +18,6 @@ function startGame(){
                   }
                }
        //when user want new game while progressing the current
-
          else if(gameCount>1) {
 
                location.reload();
@@ -27,7 +25,8 @@ function startGame(){
                alert("Click again on Start button for new game");
                 }
            }
-document.addEventListener('DOMContentLoaded', function() {
+
+  document.addEventListener('DOMContentLoaded', function() {
 
           document.getElementById("keytoRace").style.visibility="hidden";
           var playerStrip = document.querySelectorAll('tr')
@@ -40,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
           function udatePlayerPosition(e) {
 
                //when user release 'p' key
-
                if (event.which ===80) {
                pCount++;
 
@@ -53,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             trackSpeed()
                       }
                      //when 'p' reaches finish point
-
                     if(pCount>trackLength && pCount>qCount) { 
  
                             player2Strip = document.querySelectorAll('#player2_strip td');
@@ -66,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
                    }
              }
            //when user release 'q' key
-
                else if (event.which ===81) {
                qCount++;
 
@@ -79,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
                              trackSpeed()
                      }
                    //when 'q' reaches finish point
-
                     if(qCount>trackLength && qCount>pCount) {
 
                              player1Strip = document.querySelectorAll('#player1_strip td')
@@ -98,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                var x=document.getElementsByClassName("active");
                //when p chase faster than q
-
                     if(pCount>qCount) {
  
                              document.getElementById("pChaseTrack").innerHTML="P IS CHASING";
@@ -106,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
                              document.getElementById("trackEsc").style.visibility="hidden";
                     }
                 //when q chase faster than p
-
                      if(qCount>pCount) {
 
                              document.getElementById("qChaseTrack").innerHTML="Q IS CHASING";
@@ -115,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
                    }
                  }
              //when user finish game and starts new game
-
           function pageReload() {
   
                              document.getElementById("trackEsc").style.visibility="visible";
