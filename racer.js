@@ -5,7 +5,6 @@ var gameCount=0;
 
 
 function startGame()
-
 {
 
 gameCount++;
@@ -16,12 +15,9 @@ var playerStrip = document.querySelectorAll('tr')
 
 
 if(gameCount<=1)
-
 {
 
-
 //creating track length
-
 
 trackLength = prompt("How many km required for you to escape from the city?") 
 
@@ -34,10 +30,9 @@ var trackColoumn = document.createElement('td')
 playerStrip[i].appendChild(trackColoumn)
           
   }
-        
-        
-  }}
-
+             
+  }
+}
 
 //when user want new game while progressing the current
 
@@ -70,7 +65,6 @@ var pCount=0;
 var qCount=0
 
 
-
 function udatePlayerPosition(e) {
 
 
@@ -93,19 +87,13 @@ player1Strip[j-1].className="";
 
 //udatePlayerPosition(player1_strip);
 
-
-
 trackSpeed()
 
 }
 
-
-
 //when 'p' reaches finish point
 
- if(pCount>trackLength && pCount>qCount)
-
-{ 
+ if(pCount>trackLength && pCount>qCount) { 
  
   player2Strip = document.querySelectorAll('#player2_strip td');
 
@@ -126,10 +114,7 @@ trackSpeed()
 
 }
 
-
-
 //when user press 'q' button
-
 
 else if (event.which ===81) {
 
@@ -151,14 +136,9 @@ trackSpeed()
 
 }
 
-
-
 //when 'q' reaches finish point
 
-
- if(qCount>trackLength && qCount>pCount)
-
-{
+ if(qCount>trackLength && qCount>pCount) {
 
   player1Strip = document.querySelectorAll('#player1_strip td')
 
@@ -180,23 +160,17 @@ trackSpeed()
 
 }
 
-
 trackSpeed()
 
 }
 
-function trackSpeed()
+function trackSpeed() {
 
-{
-
-   var x=document.getElementsByClassName("active");
+  var x=document.getElementsByClassName("active");
 
  //when p chase faster than q
 
-
- if(pCount>qCount)
-
- {
+ if(pCount>qCount) {
  
    document.getElementById("pChaseTrack").innerHTML="P IS CHASING";
 
@@ -208,9 +182,7 @@ function trackSpeed()
 
 //when q chase faster than p
 
- if(qCount>pCount)
-
- {
+ if(qCount>pCount) {
    document.getElementById("qChaseTrack").innerHTML="Q IS CHASING";
 
    document.getElementById("pChaseTrack").innerHTML="";
@@ -219,6 +191,7 @@ function trackSpeed()
 
  }
 }
+
 //when user finish game and starts new game
 
 function pageReload()
@@ -253,6 +226,5 @@ function pageReload()
   player2Strip[0].className="active";
   
 }
-
 
 })
