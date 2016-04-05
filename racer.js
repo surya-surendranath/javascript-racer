@@ -90,7 +90,7 @@ function startGame(){
       }      
          function trackSpeed() {
 
-               //when p chase faster than q
+               //when p chase faster than q 
                     if(pCount>qCount) {
  
                              document.getElementById("pChaseTrack").innerHTML="P IS CHASING";
