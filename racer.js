@@ -31,7 +31,7 @@ function startGame(){
                 }
    
            }
-           
+
 document.addEventListener('DOMContentLoaded', function() {
 
           document.getElementById("keytoRace").style.visibility="hidden";
@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
                //when user release 'p' key
 
                if (event.which ===80) {
-
                pCount++;
 
                      if(pCount<=trackLength){
@@ -76,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
            //when user release 'q' key
 
            else if (event.which ===81) {
-
            qCount++;
 
                  if(qCount<=trackLength) {
