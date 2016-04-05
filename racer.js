@@ -29,9 +29,10 @@ var trackColoumn = document.createElement('td')
 
 playerStrip[i].appendChild(trackColoumn)
           
-  }
+}
              
-  }
+}
+
 }
 
 //when user want new game while progressing the current
@@ -67,11 +68,9 @@ var qCount=0
 
 function udatePlayerPosition(e) {
 
-
 //when user press'p' button
 
 if (event.which ===80) {
-
 
 pCount++;
 
@@ -110,7 +109,6 @@ trackSpeed()
   pageReload(); 
 
 }
-
 
 }
 
@@ -166,7 +164,7 @@ trackSpeed()
 
 function trackSpeed() {
 
-  var x=document.getElementsByClassName("active");
+   var x=document.getElementsByClassName("active");
 
  //when p chase faster than q
 
