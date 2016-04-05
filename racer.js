@@ -15,10 +15,8 @@ function startGame(){
                     for ( var j = 0; j < trackLength; j++){
                         var trackColoumn = document.createElement('td')
                         playerStrip[i].appendChild(trackColoumn)
-          
                      }
-
-                   }
+                  }
                }
        //when user want new game while progressing the current
 
@@ -27,11 +25,8 @@ function startGame(){
                location.reload();
                alert("Oops!! you want to start a new game");
                alert("Click again on Start button for new game");
-
                 }
-   
            }
-
 document.addEventListener('DOMContentLoaded', function() {
 
           document.getElementById("keytoRace").style.visibility="hidden";
@@ -43,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
           var qCount=0
 
           function udatePlayerPosition(e) {
+
                //when user release 'p' key
 
                if (event.which ===80) {
@@ -67,29 +63,24 @@ document.addEventListener('DOMContentLoaded', function() {
                             document.getElementById("trackEsc").style.visibility="visible";
                             alert("BRAVE! P ESCAPED!");
                             pageReload(); 
-
-                    }
-
+                   }
              }
-
            //when user release 'q' key
 
-           else if (event.which ===81) {
-           qCount++;
+               else if (event.which ===81) {
+               qCount++;
 
-                 if(qCount<=trackLength) {
+                       if(qCount<=trackLength) {
 
                              var j=qCount;
                              player2Strip = document.querySelectorAll('#player2_strip td') 
                              player2Strip[j].className="active";
                              player2Strip[j-1].className="";
                              trackSpeed()
-
                      }
-
                    //when 'q' reaches finish point
 
-                if(qCount>trackLength && qCount>pCount) {
+                    if(qCount>trackLength && qCount>pCount) {
 
                              player1Strip = document.querySelectorAll('#player1_strip td')
                              var win2=document.getElementById("trackEsc").innerHTML="HURRAY! Q ESCAPED FROM CITY";
@@ -99,13 +90,10 @@ document.addEventListener('DOMContentLoaded', function() {
                              document.getElementById("trackEsc").style.visibility="visible";
                              alert("BRAVE! Q ESCAPED!");
                              pageReload();
-
-                   }
-
+                    }
               }
           trackSpeed()
-      }
-         
+      }      
          function trackSpeed() {
 
                var x=document.getElementsByClassName("active");
@@ -147,7 +135,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
                              player1Strip[0].className="active";
                              player2Strip[0].className="active";
-  
                 }
-
-       })
+          })
