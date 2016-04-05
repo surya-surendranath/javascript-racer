@@ -62,7 +62,7 @@ function startGame(){
                             pageReload(); 
                    }
              }
-           //when user release 'q' key
+               //when user release 'q' key
                else if (event.which ===81) {
                qCount++;
 
@@ -74,7 +74,7 @@ function startGame(){
                              player2Strip[j-1].className="";
                              trackSpeed()
                      }
-                   //when 'q' reaches finish point
+                     //when 'q' reaches finish point
                     if(qCount>trackLength && qCount>pCount) {
 
                              player1Strip = document.querySelectorAll('#player1_strip td')
