@@ -1,9 +1,6 @@
 var gameCount=0;
-
 //count number of times when user click start button
-
-function startGame()
-{
+function startGame(){
 
       gameCount++;
 
@@ -11,45 +8,38 @@ function startGame()
 
       var playerStrip = document.querySelectorAll('tr')
 
+         if(gameCount<=1) {
 
-        if(gameCount<=1)
-        {
+            //creating track length
 
-         //creating track length
+            trackLength = prompt("How many km required for you to escape from the city?") 
 
-          trackLength = prompt("How many km required for you to escape from the city?") 
+               for (var i = 0; i < playerStrip.length; i++) { 
+                    for ( var j = 0; j < trackLength; j++){
 
-           for (var i = 0; i < playerStrip.length; i++) { 
+                        var trackColoumn = document.createElement('td')
 
-                   for ( var j = 0; j < trackLength; j++){
-
-                      var trackColoumn = document.createElement('td')
-
-                      playerStrip[i].appendChild(trackColoumn)
+                        playerStrip[i].appendChild(trackColoumn)
           
                      }
-             
+
                    }
-
-        }
-
+               }
        //when user want new game while progressing the current
 
-         else if(gameCount>1)
+         else if(gameCount>1) {
+
+               location.reload();
+
+               alert("Oops!! you want to start a new game");
+
+               alert("Click again on Start button for new game");
+
+                }
    
-         {
+           }
 
-            location.reload();
-
-            alert("Oops!! you want to start a new game");
-
-            alert("Click again on Start button for new game");
-   
-        }
-        
-}
-
-   document.addEventListener('DOMContentLoaded', function() {
+          document.addEventListener('DOMContentLoaded', function() {
 
           document.getElementById("keytoRace").style.visibility="hidden";
 
@@ -65,11 +55,11 @@ function startGame()
 
           function udatePlayerPosition(e) {
 
-        //when user press'p' button
+               //when user release 'p' key
 
                if (event.which ===80) {
 
-                 pCount++;
+               pCount++;
 
                      if(pCount<=trackLength){
 
@@ -84,7 +74,6 @@ function startGame()
                            //udatePlayerPosition(player1_strip);
 
                             trackSpeed()
-
                       }
 
                      //when 'p' reaches finish point
@@ -109,13 +98,13 @@ function startGame()
 
              }
 
-           //when user press 'q' button
+           //when user release 'q' key
 
            else if (event.which ===81) {
 
-              qCount++;
+           qCount++;
 
-                 if(qCount<=trackLength){
+                 if(qCount<=trackLength) {
 
                              var j=qCount;
 
@@ -156,7 +145,6 @@ function startGame()
               }
 
           trackSpeed()
-
       }
 
          function trackSpeed() {
