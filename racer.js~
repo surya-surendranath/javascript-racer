@@ -5,7 +5,6 @@ var gameCount=0;
 
 
 function startGame()
-
 {
 
 gameCount++;
@@ -16,40 +15,34 @@ var playerStrip = document.querySelectorAll('tr')
 
 
 if(gameCount<=1)
-
 {
 
 
 //creating track length
+          trackLength = prompt("How many km required for you to escape from the city?") 
 
+          for (var i = 0; i < playerStrip.length; i++) { 
 
-trackLength = prompt("How many km required for you to escape from the city?") 
+          for ( var j = 0; j < trackLength; j++){
 
-for (var i = 0; i < playerStrip.length; i++) { 
+          var trackColoumn = document.createElement('td')
 
-for ( var j = 0; j < trackLength; j++){
-
-var trackColoumn = document.createElement('td')
-
-playerStrip[i].appendChild(trackColoumn)
+          playerStrip[i].appendChild(trackColoumn)
           
-  }
+        }
         
         
-  }}
-
-
+      }}
 //when user want new game while progressing the current
 
-else if(gameCount>1)
-   
- {
+      else if(gameCount>1)
+      {
 
-location.reload();
+      location.reload();
 
-alert("Oops!! you want to start a new game");
+      alert("Oops!! you want to start a new game");
 
-alert("Click again on Start button for new game");
+      alert("Click again on Start button for new game");
    
 }
         
@@ -73,7 +66,6 @@ var qCount=0
 
 function udatePlayerPosition(e) {
 
-
 //when user press'p' button
 
 if (event.which ===80) {
@@ -91,15 +83,13 @@ player1Strip[j].className="active";
 
 player1Strip[j-1].className="";
 
-//udatePlayerPosition(player1_strip);
+udatePlayerPosition(player1_strip);
 
 
 
 trackSpeed()
 
 }
-
-
 
 //when 'p' reaches finish point
 
@@ -126,8 +116,6 @@ trackSpeed()
 
 }
 
-
-
 //when user press 'q' button
 
 
@@ -145,17 +133,12 @@ player2Strip[j].className="active";
 
 player2Strip[j-1].className="";
 
-//udatePlayerPosition(player2_strip);
+udatePlayerPosition(player2_strip);
 
 trackSpeed()
 
 }
-
-
-
 //when 'q' reaches finish point
-
-
  if(qCount>trackLength && qCount>pCount)
 
 {
