@@ -78,7 +78,6 @@ function startGame(){
                     if(qCount>trackLength && qCount>pCount) {
 
                              player1Strip = document.querySelectorAll('#player1_strip td')
-                             var win2=document.getElementById("trackEsc").innerHTML="HURRAY! Q ESCAPED FROM CITY";
                              document.getElementById("trackEsc").innerHTML="HURRAY! Q ESCAPED FROM CITY";
                              document.getElementById("pChaseTrack").style.visibility="hidden";
                              document.getElementById("qChaseTrack").style.visibility="hidden";
@@ -91,8 +90,7 @@ function startGame(){
       }      
          function trackSpeed() {
 
-               var x=document.getElementsByClassName("active");
-               //when p chase faster than q
+               //when p chase faster than q 
                     if(pCount>qCount) {
  
                              document.getElementById("pChaseTrack").innerHTML="P IS CHASING";
