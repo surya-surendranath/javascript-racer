@@ -17,16 +17,16 @@ padding:50px;
 
 .racer_table #player1_strip td.path {
  background-color:Black;
-height: 55px;
-width: 55px;
+height:85px;
+width: 85px;
 }
 
 .racer_table td {
   background-image:url(race.jpg);
  background-repeat:no-repeat;
  background-size:55px 55px;
-  height: 55px;
-  width: 55px;
+  height: 85px;
+  width: 85px;
 }
 /*----Animation-----*/
 @keyframes blink-animation{
@@ -62,14 +62,14 @@ width: 55px;
  animation:blink-animation 1s infinite;
 -webkit-animation: blink-animation 1s infinite;
  background-repeat:no-repeat;
- background-size:55px 55px
+ background-size:85px 85px
 }
 .racer_table #player2_strip td.active {
  background-image:url(car2.jpg);
  animation:blink-animation 1s infinite;
 -webkit-animation: blink-animation 1s infinite;
  background-repeat:no-repeat;
- background-size:55px 55px
+ background-size:85px 85px
 }
 div {
   text-align: center;
@@ -101,7 +101,6 @@ div {
   color:red;
   font-size: 30px;
   font-weight: bold;
-  margin-top: -20px;
 }
 #qChaseTrack
 {
@@ -111,7 +110,6 @@ div {
   color:red;
   font-size: 30px;
   font-weight: bold;
-   margin-top: -70px;
 }
 #trackEsc
 {
@@ -128,41 +126,4 @@ div {
   color:yellow;
    font-size: 25px;
    font-weight: bold;
-}
-#imgCop
-{
- 
-  float:left;
-  margin-top: -170px;
-}
-#imgTraffic
-{
- 
-  float:right;
-  margin-top: -170px;
-}
-#imgrob1
-{
- 
-  float:right;
-  margin-top: 100px;
-}
-#imgrob2
-{
- 
-  float:left;
-  margin-top: -10px;
-}
-#idimgrob1
-{
-  text-align:right;
-  margin-top:100px;
-  font-weight: bold;
-}
-#idimgrob2
-{
-  text-align:left;
-  margin-top:-70px;
-  font-weight: bold;
-  margin-left: 75px;
 }

@@ -1,129 +1,211 @@
 var gameCount=0;
-//count number of times when user click start button
-function startGame(){
+
+var startGame= function(){
 
       gameCount++;
+
       document.getElementById("keytoRace").style.visibility="visible";
-      var playerStrip = document.querySelectorAll('tr')
 
-         if(gameCount<=1) {
-            //creating track length
-            trackLength = prompt("How many km required for you to escape from the city?") 
+      trackLen()
+      newGame()
+    }
 
-               for (var i = 0; i < playerStrip.length; i++) { 
-                    for ( var j = 0; j < trackLength; j++){
-                        var trackColoumn = document.createElement('td')
-                        playerStrip[i].appendChild(trackColoumn)
-                     }
-                  }
-               }
-       //when user want new game while progressing the current
-         else if(gameCount>1) {
+var trackLen=function(){
+
+      if(gameCount<=1) {
+
+         //Creating track length
+         trackLength = prompt("How many km required for you to escape from the city?")
+
+         var playerStrip = document.querySelectorAll('tr') 
+
+         for (var i = 0; i < playerStrip.length; i++) { 
+           for ( var j = 0; j < trackLength; j++){
+
+             var trackColoumn = document.createElement('td')
+             playerStrip[i].appendChild(trackColoumn)       
+                }
+              }
+            }
+          }
+
+var newGame=function(){
+
+     //when user want new game while progressing the current
+     if(gameCount>1) {
 
                location.reload();
+
                alert("Oops!! you want to start a new game");
                alert("Click again on Start button for new game");
                 }
+              }
+
+document.addEventListener('DOMContentLoaded', function() {
+
+  document.getElementById("keytoRace").style.visibility="hidden";
+  document.getElementById("imgrob1").style.visibility="hidden";
+  document.getElementById("imgrob2").style.visibility="hidden";
+
+  document.getElementById("idimgrob1").style.visibility="hidden";
+  document.getElementById("idimgrob2").style.visibility="hidden";
+
+  var playerStrip = document.querySelectorAll('tr')
+  var player1Strip = document.querySelectorAll('#player1_strip td')
+
+  document.addEventListener('keyup', udatePlayerPosition); 
+
+  var pCount=0;
+  var qCount=0;
+
+  function udatePlayerPosition() {
+
+   //when user release 'p' key
+    if (event.which ===80) {
+    pCount++;
+
+    pTrackLength()
+    pTrackFinish()
+      }
+
+   //when user release 'q' key
+       else if (event.which ===81) {
+
+         qCount++;
+
+         qTrackLength()
+         qTrackFinish()
            }
 
-  document.addEventListener('DOMContentLoaded', function() {
+    trackSpeed()
+         } 
 
-          document.getElementById("keytoRace").style.visibility="hidden";
-          var playerStrip = document.querySelectorAll('tr')
-          player1Strip = document.querySelectorAll('#player1_strip td')
-          document.addEventListener('keyup', udatePlayerPosition); 
+var pTrackLength=function(){
 
-          var pCount=0;
-          var qCount=0
+    if(pCount<=trackLength){
 
-          function udatePlayerPosition(e) {
+      var j=pCount;
+      var player1Strip = document.querySelectorAll('#player1_strip td')
 
-               //when user release 'p' key
-               if (event.which ===80) {
-               pCount++;
+      player1Strip[j].className="active";
+      player1Strip[j-1].className="";
 
-                     if(pCount<=trackLength){
+      trackSpeed()
+         }
+       }
 
-                            var j=pCount;
-                            player1Strip = document.querySelectorAll('#player1_strip td')
-                            player1Strip[j].className="active";
-                            player1Strip[j-1].className="";
-                            trackSpeed()
-                      }
-                     //when 'p' reaches finish point
-                    if(pCount>trackLength && pCount>qCount) { 
- 
-                            player2Strip = document.querySelectorAll('#player2_strip td');
-                            document.getElementById("trackEsc").innerHTML="HURRAY! P ESCAPED FROM CITY";
-                            document.getElementById("pChaseTrack").style.visibility="hidden";
-                            document.getElementById("qChaseTrack").style.visibility="hidden";
-                            document.getElementById("trackEsc").style.visibility="visible";
-                            alert("BRAVE! P ESCAPED!");
-                            pageReload(); 
+var pTrackFinish=function(){
+
+     //when 'p' reaches finish point
+     if(pCount>trackLength && pCount>qCount) { 
+
+       var player2Strip = document.querySelectorAll('#player2_strip td');
+
+       document.getElementById("imgrob1").style.visibility="visible";
+       document.getElementById("idimgrob1").style.visibility="visible";
+
+       document.getElementById("trackEsc").innerHTML="HURRAY! 'JOHN' ESCAPED FROM CITY";
+       document.getElementById("trackEsc").style.visibility="visible";
+
+       document.getElementById("pChaseTrack").style.visibility="hidden";
+       document.getElementById("qChaseTrack").style.visibility="hidden";
+       
+
+       alert("BRAVE! JOHN ESCAPED!");
+       pageReload(); 
+           }
+         }
+   
+ var qTrackLength=function(){
+
+     if(qCount<=trackLength) {
+
+        var j=qCount;
+        var player2Strip = document.querySelectorAll('#player2_strip td') 
+
+        player2Strip[j].className="active";
+        player2Strip[j-1].className="";
+
+        trackSpeed()
+           }
+         }
+                
+var qTrackFinish=function(){
+
+      //when 'q' reaches finish point
+      if(qCount>trackLength && qCount>pCount) {
+
+         var player1Strip = document.querySelectorAll('#player1_strip td')
+
+         document.getElementById("imgrob2").style.visibility="visible";
+         document.getElementById("idimgrob2").style.visibility="visible";
+
+         document.getElementById("trackEsc").innerHTML="HURRAY!'WALTER' ESCAPED FROM CITY";
+         document.getElementById("trackEsc").style.visibility="visible";
+
+         document.getElementById("pChaseTrack").style.visibility="hidden";
+         document.getElementById("qChaseTrack").style.visibility="hidden";
+
+         alert("BRAVE! WALTER ESCAPED!");
+         pageReload();
+            }
+          }
+
+function trackSpeed() {
+
+      //when p chase faster than q 
+      if(pCount>qCount) {
+
+         document.getElementById("pChaseTrack").innerHTML="JOHN IS DRIVING FAST";
+         document.getElementById("qChaseTrack").innerHTML="";
+
+         document.getElementById("imgrob1").style.visibility="visible";
+         document.getElementById("imgrob2").style.visibility="hidden";
+
+         document.getElementById("idimgrob1").style.visibility="visible";
+         document.getElementById("idimgrob2").style.visibility="hidden";
+
+         document.getElementById("trackEsc").style.visibility="hidden";
                    }
+      //when q chase faster than p
+      if(qCount>pCount) {
+
+          document.getElementById("qChaseTrack").innerHTML="WALTER IS DRIVING FAST";
+          document.getElementById("pChaseTrack").innerHTML="";
+
+          document.getElementById("imgrob2").style.visibility="visible";
+          document.getElementById("imgrob1").style.visibility="hidden";
+
+          document.getElementById("idimgrob1").style.visibility="hidden";
+          document.getElementById("idimgrob2").style.visibility="visible";
+
+          document.getElementById("trackEsc").style.visibility="hidden";
+               }
              }
-               //when user release 'q' key
-               else if (event.which ===81) {
-               qCount++;
+             
+function pageReload() {
 
-                       if(qCount<=trackLength) {
+       //when user finish game and starts new game
+         document.getElementById("trackEsc").style.visibility="visible";
 
-                             var j=qCount;
-                             player2Strip = document.querySelectorAll('#player2_strip td') 
-                             player2Strip[j].className="active";
-                             player2Strip[j-1].className="";
-                             trackSpeed()
-                     }
-                     //when 'q' reaches finish point
-                    if(qCount>trackLength && qCount>pCount) {
+         document.getElementById("pChaseTrack").style.visibility="hidden";
+         document.getElementById("qChaseTrack").style.visibility="hidden";
 
-                             player1Strip = document.querySelectorAll('#player1_strip td')
-                             document.getElementById("trackEsc").innerHTML="HURRAY! Q ESCAPED FROM CITY";
-                             document.getElementById("pChaseTrack").style.visibility="hidden";
-                             document.getElementById("qChaseTrack").style.visibility="hidden";
-                             document.getElementById("trackEsc").style.visibility="visible";
-                             alert("BRAVE! Q ESCAPED!");
-                             pageReload();
-                    }
-              }
-          trackSpeed()
-      }      
-         function trackSpeed() {
+         alert("Click on start new game button to start a new game");                         
+         location.reload();
 
-               //when p chase faster than q 
-                    if(pCount>qCount) {
- 
-                             document.getElementById("pChaseTrack").innerHTML="P IS CHASING";
-                             document.getElementById("qChaseTrack").innerHTML="";
-                             document.getElementById("trackEsc").style.visibility="hidden";
-                    }
-                //when q chase faster than p
-                     if(qCount>pCount) {
+         document.getElementById("player1_strip").style.visibility="hidden";
+         document.getElementById("player2_strip").style.visibility="hidden";
 
-                             document.getElementById("qChaseTrack").innerHTML="Q IS CHASING";
-                             document.getElementById("pChaseTrack").innerHTML="";
-                             document.getElementById("trackEsc").style.visibility="hidden";
-                   }
-                 }
-             //when user finish game and starts new game
-          function pageReload() {
-  
-                             document.getElementById("trackEsc").style.visibility="visible";
-                             document.getElementById("pChaseTrack").style.visibility="hidden";
-                             document.getElementById("qChaseTrack").style.visibility="hidden";
+         document.getElementById("pChaseTrack").style.visibility="hidden";
+         document.getElementById("qChaseTrack").style.visibility="hidden";
 
-                             alert("Click on start new game button to start a new game");                         
-                             location.reload();
+         document.getElementById("startBtn").style.visibility="visible";
 
-                             document.getElementById("player1_strip").style.visibility="hidden";
-                             document.getElementById("player2_strip").style.visibility="hidden";
-                             document.getElementById("pChaseTrack").style.visibility="hidden";
-                             document.getElementById("qChaseTrack").style.visibility="hidden";
-                             document.getElementById("startBtn").style.visibility="visible";
-                             document.getElementById("car3").style.visibility="visible";
-                             document.getElementById("car4").style.visibility="visible";
+         document.getElementById("car3").style.visibility="visible";
+         document.getElementById("car4").style.visibility="visible";
 
-                             player1Strip[0].className="active";
-                             player2Strip[0].className="active";
+        player1Strip[0].className="active";
+        player2Strip[0].className="active";
                 }
           })
